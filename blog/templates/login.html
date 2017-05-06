@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block page_title %}Edit Blog Login{% endblock %}
+
+{% block content %}
+
+{% if forms.errors %}
+<p>Wrong ID or PASSWORD</p>
+{% endif %}
+
+{% if user.is_authenticated %}
+    <p>Already loggined in</p>
+{% endif %}
+
+<form method="post" action="{% url 'login' %}">
+{% csrf_token %}
+<input type="hidden" name="next" value="{{ next }}"/>
+
+{{ form.as_p }}
+
+<button type="submit">Login</button>
+</form>
+
+{% endblock %}

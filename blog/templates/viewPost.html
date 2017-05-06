@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block page_title %}View Post{% endblock %}
+
+{% block content %}
+
+<div>
+    <h2>
+        <p>{{post.title}}</p>
+    </h2>
+    <h3>
+        <p>{{post.published_date}}</p>
+    </h3>
+    <h3>{{post.author}}</h3>
+    <p>{{post.text}}</p>
+</div>
+{% if user.id == post.user.id %}
+    <ul>
+        <li><a href="{% url 'editPost' pk=post.pk %}">Edit Post</a></li>
+        <li><a href="{% url 'home' %}">Home</a></li>
+    </ul>
+{% endif %}
+
+{% endblock %}

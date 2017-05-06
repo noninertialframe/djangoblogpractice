@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block page_title %}HOME{% endblock %}
+
+{% block content %}
+
+<ul>
+    <li><a href="{% url 'login' %}">Login</a></li>
+    <li><a href="{% url 'logout' %}">Logout</a></li>
+    <li><a href="{% url 'writepost' %}">Write Post</a></li>
+</ul>
+{% for post in posts %}
+<div>
+    <h2>
+        <p><a href="/posts/{{post.pk}}">{{post.title}}</a></p>
+    </h2>
+    <h3>
+        <p>{{post.published_date}}</p>
+    </h3>
+    <h3>{{post.user}}</h3>
+    <p>{{post.text}}</p>
+</div>
+{% endfor %}
+
+{% endblock %}

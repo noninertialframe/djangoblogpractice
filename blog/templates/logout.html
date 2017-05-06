@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+
+{% block page_title %}Edit Blog Login{% endblock %}
+
+{% block content %}
+<p>Logged Out</p>
+<ul>
+    <li><a href="{% url 'login' %}">Login Again</a></li>
+    <li><a href="/">Home</a></li>
+</ul>
+{% endblock %}
