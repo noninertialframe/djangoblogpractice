@@ -1,0 +1,2 @@
+# djangoblogpractice
+Django Blog Practice
