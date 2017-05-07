@@ -12,13 +12,14 @@
         <p>{{post.published_date}}</p>
     </h3>
     <h3>{{post.author}}</h3>
-    <p>{{post.text}}</p>
+    <p>{{post.content|safe}}</p>
 </div>
+<ul>
 {% if user.id == post.user.id %}
-    <ul>
-        <li><a href="{% url 'editPost' pk=post.pk %}">Edit Post</a></li>
-        <li><a href="{% url 'home' %}">Home</a></li>
-    </ul>
+    <li><a href="{% url 'editPost' pk=post.pk %}">Edit Post</a></li>
+    <li><a href="{% url 'deletePost' pk=post.pk %}">Delete Post</a></li>
 {% endif %}
+    <li><a href="{% url 'home' %}">Home</a></li>
+</ul>
 
 {% endblock %}

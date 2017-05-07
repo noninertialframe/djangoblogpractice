@@ -69,3 +69,9 @@ def editPost(request, pk):
         
     else:
         return HttpResponseRedirect(reverse('home'))
+
+def deletePost(request, pk):
+    post = Post.objects.get(pk=pk)
+    if post.user.id == request.user.id:
+        post.delete()
+    return HttpResponseRedirect(reverse('home'))
